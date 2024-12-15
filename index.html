@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clearview Optics</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; 
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .button1, .button2, .button3 {
+            position: absolute; 
+            background: none; 
+            color: black; 
+            border: none; 
+            font-size: 16px; 
+            cursor: pointer; 
+            text-decoration: none; 
+        }
+
+        .button1 {
+            left: 60px; 
+            top: 20px;
+        }
+
+        .button2 {
+            left: 175px;
+            top: 20px;
+        }
+
+        .button3 {
+            left: 270px;
+            top: 20px;
+        }
+
+        .button1::after {
+            content: ''; 
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: black;
+            transform: scaleX(0); 
+            transform-origin: bottom right; 
+            transition: transform 0.3s ease; 
+        }
+
+        .button1:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left; 
+        }
+
+        .button2::after {
+            content: ''; 
+            position: absolute;
+            bottom: 0; 
+            left: 0;
+            width: 100%;
+            height: 2px; 
+            background-color: black;
+            transform: scaleX(0); 
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .button2:hover::after {
+            transform: scaleX(1); 
+            transform-origin: bottom left; 
+        }
+
+        .button3::after {
+            content: ''; 
+            position: absolute;
+            bottom: 0; 
+            left: 0;
+            width: 100%; 
+            height: 2px; 
+            background-color: black; 
+            transform: scaleX(0); 
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+
+        .button3:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left; 
+        }
+
+        .right2-1 {
+            opacity: 0; 
+            pointer-events: auto; 
+            position: absolute; 
+            top: 365px;
+            width: 40px;
+            height: 70px;
+            left: 83%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .left2-2 {
+            opacity: 0; 
+            pointer-events: auto; 
+            position: absolute; 
+            top: 365px;
+            width: 40px;
+            height: 70px;
+            left: 83%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .left2-3 {
+            opacity: 0;
+            pointer-events: auto; 
+            position: absolute; 
+            top: 365px;
+            width: 40px;
+            height: 70px;
+            left: 83%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .right2-2 {
+            opacity: 0;
+            pointer-events: auto; 
+            position: absolute; 
+            top: 365px;
+            width: 40px;
+            height: 70px;
+            left: 83%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .button-hidden {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute; 
+            top: 26px;
+            height: 34px;
+            width: 450px;
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .shopnow {
+            opacity: 0; 
+            pointer-events: auto; 
+            position: absolute; 
+            top: 550px;
+            width: 175px;
+            height: 70px;
+            left: 62.7%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .shopnow-search-cart {
+            opacity: 0; 
+            pointer-events: auto; 
+            position: absolute; 
+            top: 695px;
+            width: 175px;
+            height: 65px;
+            left: 62.7%; 
+            transform: translate(-50%, -50%); 
+        }
+
+        .search {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute;
+            top: 28px;
+            width: 48px;
+            height: 38px;
+            left: 81%;
+            transform: translate(-50%, -50%);
+        }
+
+        .user {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute;
+            top: 27px;
+            width: 43px;
+            height: 38px;
+            left: 87%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cart {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute;
+            top: 27px;
+            width: 43px;
+            height: 38px;
+            left: 93%;
+            transform: translate(-50%, -50%);
+        }
+
+        .voice {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute;
+            top: 695px;
+            width: 47px;
+            height: 42px;
+            left: 7.2%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hear {
+            opacity: 0; 
+            pointer-events: auto;
+            position: absolute;
+            top: 695px;
+            width: 47px;
+            height: 42px;
+            left: 11.5%;
+            transform: translate(-50%, -50%);
+        }
+
+        .support {
+            opacity: 0;
+            pointer-events: auto;
+            position: absolute;
+            top: 695px;
+            width: 135px;
+            height: 60px;
+            left: 90.5%;
+            transform: translate(-50%, -50%);
+        }
+        
+        
+
+    </style>
+</head>
+<body>
+    <img id="image" src="assets/page1.jpg" alt="Fullscreen Image">
+        
+    <button class="button1" onclick="changeImage('assets/page2.1.jpg')">SHOP NOW</button>
+    <button class="button2" onclick="changeImage('assets/stores.jpg')">STORES</button>
+    <button class="button3" onclick="changeImage('assets/about.jpg')">ABOUT</button>
+    <button class="button-hidden" onclick="changeImage('assets/page1.jpg')">Hidden Button</button>
+    <button class="right2-1" onclick="changeImage('assets/page2.2.jpg')">rigth21</button>
+    <button class="right2-2" onclick="changeImage('assets/page2.3.jpg')">rigth22</button>
+    <button class="left2-2" onclick="changeImage('assets/page2.1.jpg')">left22</button>
+    <button class="left2-3" onclick="changeImage('assets/page2.2.jpg')">left23</button>
+    <button class="shopnow" onclick="changeImage('assets/page2.1.jpg')">shopnow</button>
+    <button class="shopnow-search-cart" onclick="changeImage('assets/page2.1.jpg')">shopnow user</button>
+    <button class="search" onclick="changeImage('assets/search.jpg')">search</button>
+    <button class="user" onclick="changeImage('assets/user.jpg')">user</button>
+
+    <button class="cart" onclick="changeImage('assets/cart.jpg')">cart</button>
+    <button class="voice" onclick="changeImage('assets/voice.gif')">voice</button>
+    <button class="hear" onclick="changeImage('assets/hear.gif')">hear</button>
+    <button class="support" onclick="changeImage('assets/support.jpg')">support</button>
+
+    <script>
+
+
+        function changeImage(imageSrc) {
+            const img = document.getElementById('image');
+            img.src = imageSrc; 
+
+            const buttons = {
+    right21: document.querySelector('.right2-1'),
+    right22: document.querySelector('.right2-2'),
+    left22: document.querySelector('.left2-2'),
+    left23: document.querySelector('.left2-3'),
+    shopnow: document.querySelector('.shopnow'),
+    shopnow_search_cart: document.querySelector('.shopnow-search-cart')
+
+};
+
+const buttonConfig = {
+    right21: { text: 'Text for Page 2.1', left: '83%', top: '365px' },
+    right22: { text: 'Text for Page 2.2', left: '83%', top: '365px' },
+    left22: { text: 'Text for Page left 2.2', left: '17%', top: '365px' },
+    left23: { text: 'Text for left Page 2.3', left: '17%', top: '365px' },
+    shopnow: { text: 'Text for shop now', left: '62.7%', top: '550px' },
+    shopnow_search_cart: { text: 'Text for shop now cart', left: '62.7%', top: '695px' }
+
+};
+
+function updateButton(button, { text, left, top }, show = true) {
+    button.style.display = show ? 'block' : 'none';
+    button.innerText = text;
+    button.disabled = !show;
+    button.style.left = left;
+    button.style.top = top;
+}
+if (imageSrc === 'assets/page1.jpg' || imageSrc === 'assets/search.jpg' || imageSrc === 'assets/hear.gif' || imageSrc === 'assets/voice.gif') {
+    updateButton(buttons.shopnow, buttonConfig.shopnow); 
+} else {
+    updateButton(buttons.shopnow, {}, false);
+}
+
+if (imageSrc === 'assets/user.jpg' || imageSrc === 'assets/cart.jpg') {
+    updateButton(buttons.shopnow_search_cart, buttonConfig.shopnow_search_cart);
+} else {
+    updateButton(buttons.shopnow_search_cart, {}, false);
+}
+
+if (imageSrc === 'assets/page2.1.jpg') {
+    updateButton(buttons.right21, buttonConfig.right21);
+} else {
+    updateButton(buttons.right21, {}, false);
+}
+
+if (imageSrc === 'assets/page2.2.jpg') {
+    updateButton(buttons.right22, buttonConfig.right22);
+    updateButton(buttons.left22, buttonConfig.left22);
+} else {
+    updateButton(buttons.right22, {}, false);
+    updateButton(buttons.left22, {}, false);
+}
+
+if (imageSrc === 'assets/page2.3.jpg') {
+    updateButton(buttons.left23, buttonConfig.left23);
+} else {
+    updateButton(buttons.left23, {}, false);
+}
+
+
+
+
+        }
+    </script>
+</body>
+</html>
