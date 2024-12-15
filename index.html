@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo.png" type="image/x-icon">
     <title>Clearview Optics</title>
     <style>
         body {
@@ -108,6 +109,8 @@
             height: 70px;
             left: 83%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
+
         }
 
         .left2-2 {
@@ -119,6 +122,8 @@
             height: 70px;
             left: 83%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
+
         }
 
         .left2-3 {
@@ -130,6 +135,8 @@
             height: 70px;
             left: 83%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
+
         }
 
         .right2-2 {
@@ -141,6 +148,8 @@
             height: 70px;
             left: 83%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
+
         }
 
         .button-hidden {
@@ -152,6 +161,7 @@
             width: 450px;
             left: 50%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
         }
 
         .shopnow {
@@ -163,6 +173,7 @@
             height: 70px;
             left: 62.7%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
         }
 
         .shopnow-search-cart {
@@ -174,6 +185,7 @@
             height: 65px;
             left: 62.7%; 
             transform: translate(-50%, -50%); 
+            cursor: pointer;
         }
 
         .search {
@@ -185,6 +197,7 @@
             height: 38px;
             left: 81%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
 
         .user {
@@ -196,6 +209,7 @@
             height: 38px;
             left: 87%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
 
         .cart {
@@ -207,6 +221,7 @@
             height: 38px;
             left: 93%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
 
         .voice {
@@ -218,6 +233,7 @@
             height: 42px;
             left: 7.2%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
 
         .hear {
@@ -229,6 +245,7 @@
             height: 42px;
             left: 11.5%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
 
         .support {
@@ -240,9 +257,9 @@
             height: 60px;
             left: 90.5%;
             transform: translate(-50%, -50%);
+            cursor: pointer;
         }
-        
-        
+    
 
     </style>
 </head>
@@ -280,7 +297,11 @@
     left22: document.querySelector('.left2-2'),
     left23: document.querySelector('.left2-3'),
     shopnow: document.querySelector('.shopnow'),
-    shopnow_search_cart: document.querySelector('.shopnow-search-cart')
+    shopnow_search_cart: document.querySelector('.shopnow-search-cart'),
+    support: document.querySelector('.support'),
+    voice: document.querySelector('.voice'),
+    hear: document.querySelector('.hear'),
+
 
 };
 
@@ -290,7 +311,11 @@ const buttonConfig = {
     left22: { text: 'Text for Page left 2.2', left: '17%', top: '365px' },
     left23: { text: 'Text for left Page 2.3', left: '17%', top: '365px' },
     shopnow: { text: 'Text for shop now', left: '62.7%', top: '550px' },
-    shopnow_search_cart: { text: 'Text for shop now cart', left: '62.7%', top: '695px' }
+    shopnow_search_cart: { text: 'Text for shop now cart', left: '62.7%', top: '695px' },
+    support: { text: 'Text for shop now', left: '90.5%', top: '695px' },
+    voice: { text: 'voice text', left: '7.2%', top: '695px' },
+    hear: { text: 'hear text', left: '11.5%', top: '695px' },
+
 
 };
 
@@ -301,10 +326,33 @@ function updateButton(button, { text, left, top }, show = true) {
     button.style.left = left;
     button.style.top = top;
 }
-if (imageSrc === 'assets/page1.jpg' || imageSrc === 'assets/search.jpg' || imageSrc === 'assets/hear.gif' || imageSrc === 'assets/voice.gif') {
+if (imageSrc === 'assets/page1.jpg' || imageSrc === 'assets/search.jpg' || imageSrc === 'assets/hear.gif' || imageSrc === 'assets/voice.gif'
+    || imageSrc === 'assets/support.jpg'
+) {
     updateButton(buttons.shopnow, buttonConfig.shopnow); 
 } else {
     updateButton(buttons.shopnow, {}, false);
+}
+
+if (imageSrc === 'assets/page1.jpg' || imageSrc === 'assets/search.jpg' || imageSrc === 'assets/hear.gif' || imageSrc === 'assets/voice.gif' ||
+    imageSrc === 'assets/cart.jpg' || imageSrc === 'assets/user.jpg' 
+) {
+    updateButton(buttons.support, buttonConfig.support);
+
+} else {
+    updateButton(buttons.support, {}, false);
+
+}
+
+if (imageSrc === 'assets/page1.jpg' || imageSrc === 'assets/search.jpg' || imageSrc === 'assets/hear.gif' || imageSrc === 'assets/voice.gif' ||
+imageSrc === 'assets/cart.jpg' || imageSrc === 'assets/user.jpg' || imageSrc === 'assets/support.jpg') {
+    updateButton(buttons.voice, buttonConfig.voice);
+    updateButton(buttons.hear, buttonConfig.hear);
+
+} else {
+    updateButton(buttons.voice, {}, false);
+    updateButton(buttons.hear, {}, false);
+
 }
 
 if (imageSrc === 'assets/user.jpg' || imageSrc === 'assets/cart.jpg') {
