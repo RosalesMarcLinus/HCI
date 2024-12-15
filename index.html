@@ -259,13 +259,134 @@
             transform: translate(-50%, -50%);
             cursor: pointer;
         }
-    
+
+  
+
+#searchpopupbutton {
+
+    opacity: 0; 
+            pointer-events: auto;
+            position: absolute; 
+            top: 28px;
+            width: 48px;
+            height: 38px;
+            left: 81%;
+            transform: translate(-50%, -50%); 
+            cursor: pointer;
+}
+
+#userpopupbutton {
+opacity: 0; 
+        pointer-events: auto;
+        position: absolute; 
+        top: 28px;
+        width: 48px;
+        height: 38px;
+        left: 87%;
+        transform: translate(-50%, -50%); 
+        cursor: pointer;
+}
+
+
+
+.searchpopup {
+    display: none; 
+    position: fixed;
+    width: 35%; 
+    height: 30%; 
+    top: 0px;
+            left: 61%;
+    background-color: rgba(0, 0, 0, 0); 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.userpopup {
+    display: none; 
+    position: fixed;
+    width: 44%; 
+    height: 37%;
+    top: 65px;
+            left: 62.5%;
+    background-color: rgba(0, 0, 0, 0); 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.searchpopup img {
+    max-width: 90%;  
+    max-height: 90%; 
+    object-fit: contain; 
+    background-color: transparent; 
+
+}
+
+.userpopup img {
+    max-width: 90%; 
+    max-height: 90%; 
+    object-fit: contain;
+    background-color: transparent;
+
+}
+
+#cartpopupbutton {
+opacity: 0; 
+        pointer-events: auto;
+        position: absolute; 
+        top: 27px;
+            width: 43px;
+            height: 38px;
+            left: 93%;
+        transform: translate(-50%, -50%); 
+        cursor: pointer;
+}
+
+.cartpopup {
+    display: none; 
+    position: fixed;
+    width: 46%; 
+    height: 38%;
+    top: 65px;
+            left: 62.5%;
+    background-color: rgba(0, 0, 0, 0); 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.cartpopup img {
+    max-width: 90%; 
+    max-height: 90%;
+    object-fit: contain;
+    background-color: transparent; 
+
+}
 
     </style>
 </head>
 <body>
     <img id="image" src="assets/page1.jpg" alt="Fullscreen Image">
         
+    <button id="searchpopupbutton">Click to View Image</button>
+
+    <div id="popupImage" class="searchpopup">
+        <img src="assets/searchbar.png" alt="Popup Image">
+    </div>
+
+    <button id="userpopupbutton">Click to View Image</button>
+
+    <div id="userpopupImage" class="userpopup">
+        <img src="assets/userpopup.png" alt="Popup Image">
+    </div>
+
+    <button id="cartpopupbutton">Click to View Image</button>
+
+    <div id="cartpopupImage" class="cartpopup">
+        <img src="assets/cartpopup.png" alt="Popup Image">
+    </div>
+
     <button class="button1" onclick="changeImage('assets/page2.1.jpg')">SHOP NOW</button>
     <button class="button2" onclick="changeImage('assets/stores.jpg')">STORES</button>
     <button class="button3" onclick="changeImage('assets/about.jpg')">ABOUT</button>
@@ -276,10 +397,10 @@
     <button class="left2-3" onclick="changeImage('assets/page2.2.jpg')">left23</button>
     <button class="shopnow" onclick="changeImage('assets/page2.1.jpg')">shopnow</button>
     <button class="shopnow-search-cart" onclick="changeImage('assets/page2.1.jpg')">shopnow user</button>
-    <button class="search" onclick="changeImage('assets/search.jpg')">search</button>
+    <!--<button class="search" onclick="changeImage('assets/search.jpg')">search</button>
     <button class="user" onclick="changeImage('assets/user.jpg')">user</button>
 
-    <button class="cart" onclick="changeImage('assets/cart.jpg')">cart</button>
+    <button class="cart" onclick="changeImage('assets/cart.jpg')">cart</button>-->
     <button class="voice" onclick="changeImage('assets/voice.gif')">voice</button>
     <button class="hear" onclick="changeImage('assets/hear.gif')">hear</button>
     <button class="support" onclick="changeImage('assets/support.jpg')">support</button>
@@ -287,6 +408,59 @@
     <script>
 
 
+const searchpopupbutton = document.getElementById('searchpopupbutton');
+const popupImage = document.getElementById('popupImage');
+const searchpopupimg = popupImage.querySelector('img');
+
+const userpopupbutton = document.getElementById('userpopupbutton');
+const userpopupImage = document.getElementById('userpopupImage');
+const userpopupimg = userpopupImage.querySelector('img'); 
+
+searchpopupbutton.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+    popupImage.style.display = 'flex';
+});
+
+userpopupbutton.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+    userpopupImage.style.display = 'flex';
+});
+
+document.addEventListener('click', (event) => {
+    if (!popupImage.contains(event.target)) {
+        popupImage.style.display = 'none';
+    }
+    if (!userpopupImage.contains(event.target)) {
+        userpopupImage.style.display = 'none';
+    }
+});
+
+searchpopupimg.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+});
+
+userpopupimg.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+});
+
+const cartpopupbutton = document.getElementById('cartpopupbutton');
+const cartpopupImage = document.getElementById('cartpopupImage');
+const cartpopupimg = cartpopupImage.querySelector('img');
+
+cartpopupbutton.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+    cartpopupImage.style.display = 'flex';
+});
+
+document.addEventListener('click', (event) => {
+    if (!cartpopupImage.contains(event.target)) {
+        cartpopupImage.style.display = 'none';
+    }
+});
+
+cartpopupimg.addEventListener('click', (event) => {
+    event.stopPropagation(); 
+});
         function changeImage(imageSrc) {
             const img = document.getElementById('image');
             img.src = imageSrc; 
